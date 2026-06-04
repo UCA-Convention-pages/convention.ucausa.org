@@ -1,0 +1,417 @@
+:root {
+    --brand-navy: #0A2540;
+    --brand-red: #C8102E;
+    --text-grey: #4A5568;
+    --light-grey: #EDF2F7;
+    --border-grey: #E2E8F0;
+    --bg-white: #ffffff;
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+}
+
+/* ==================================
+   Main Navbar (Desktop Architecture)
+==================================== */
+.main-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    height: 72px;
+    background-color: var(--bg-white);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.brand-logo {
+    font-weight: 700;
+    color: var(--brand-navy);
+    font-size: 1.25rem;
+}
+
+.desktop-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+}
+
+.desktop-nav a {
+    position: relative;
+    text-decoration: none;
+    color: var(--text-grey);
+    font-weight: 400;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+}
+
+/* Active Indicator with Left-to-Right Animation */
+.desktop-nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background-color: var(--brand-red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+}
+
+.desktop-nav a:hover {
+    color: var(--brand-red);
+}
+
+.desktop-nav a:hover::after {
+    transform: scaleX(1);
+}
+
+.desktop-nav a.active {
+    color: var(--brand-red);
+    font-weight: 700;
+}
+
+.desktop-nav a.active::after {
+    transform: scaleX(1);
+}
+
+/* CTA Button */
+.cta-btn {
+    background-color: var(--brand-red);
+    color: var(--bg-white);
+    border: none;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.cta-btn:hover {
+    background-color: #a80c25;
+}
+
+.mobile-only {
+    display: none;
+}
+
+/* ==================================
+   Mobile Drawer Overlay Layout
+==================================== */
+.drawer-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(10, 37, 64, 0.4);
+    z-index: 998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.drawer-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobile-drawer {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 400px;
+    height: 100vh;
+    background-color: var(--bg-white);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-drawer.open {
+    right: 0;
+}
+
+.drawer-content {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+    min-height: 0;
+}
+
+/* 1. Drawer Header */
+.drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.drawer-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    color: var(--brand-navy);
+    font-size: 1.1rem;
+}
+
+.icon-5 {
+    background-color: var(--brand-navy);
+    color: var(--bg-white);
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-grey);
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* 2. Localization Toggle */
+.localization-toggle {
+    display: flex;
+    background-color: var(--light-grey);
+    padding: 4px;
+    border-radius: 24px;
+    margin-bottom: 24px;
+}
+
+.lang-btn {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    color: var(--text-grey);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.lang-btn.active {
+    background-color: var(--brand-navy);
+    color: var(--bg-white);
+}
+
+/* 3. Vertical Navigation Links */
+.mobile-nav ul {
+    list-style: none;
+}
+
+.mobile-nav a {
+    display: block;
+    padding: 16px;
+    text-decoration: none;
+    color: var(--brand-navy);
+    font-weight: 700;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: 0.2s;
+}
+
+.mobile-nav a.active {
+    background-color: var(--brand-red);
+    color: var(--bg-white);
+    box-shadow: 0 4px 10px rgba(200, 16, 46, 0.25);
+}
+
+/* 5. Sticky Bottom CTA */
+.drawer-footer {
+    padding: 24px;
+    background-color: var(--bg-white);
+    border-top: 1px solid var(--border-grey);
+}
+
+.sticky-cta {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: var(--brand-red);
+    color: var(--bg-white);
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.microcopy {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 0.75rem;
+    color: var(--text-grey);
+    text-transform: uppercase;
+}
+
+/* ==================================
+   Responsive Viewport Architecture
+==================================== */
+@media (max-width: 768px) {
+    .desktop-nav, .desktop-only {
+        display: none;
+    }
+    .mobile-only {
+        display: flex;
+        background: none;
+        border: none;
+        color: var(--brand-navy);
+        cursor: pointer;
+        align-items: center;
+    }
+}
+
+/* ==================================
+   Global Footer Architecture
+==================================== */
+.main-footer {
+    background-color: var(--brand-navy);
+    color: var(--bg-white);
+    padding: 64px 24px 24px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 1. Main Footer Grid Layout */
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-bottom: 48px;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-brand {
+    color: var(--gold-accent, #D4AF37);
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.footer-summary {
+    color: #CBD5E1; /* Light gray */
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.social-icons {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #475569;
+    color: var(--bg-white);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.social-icon:hover {
+    border-color: var(--gold-accent, #D4AF37);
+    color: var(--gold-accent, #D4AF37);
+    background-color: rgba(212, 175, 55, 0.1);
+}
+
+.footer-heading {
+    color: var(--gold-accent, #D4AF37);
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+.footer-nav {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0;
+}
+
+.footer-nav a {
+    color: #CBD5E1;
+    text-decoration: none;
+    font-size: 0.9375rem;
+    transition: color 0.2s ease;
+}
+
+.footer-nav a:hover {
+    color: var(--gold-accent, #D4AF37);
+}
+
+.footer-address {
+    color: #CBD5E1;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    font-style: normal;
+}
+
+/* 2. Copyright Sub-Footer Bar */
+.footer-bottom {
+    border-top: 1px solid #334155;
+    padding-top: 24px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #94A3B8; /* Muted gray */
+    font-size: 0.875rem;
+}
+
+/* Responsive Reflow Optimization */
+@media (max-width: 900px) {
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .footer-bottom {
+        padding-top: 32px;
+    }
+}

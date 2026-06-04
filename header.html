@@ -1,0 +1,74 @@
+<!-- Main Navbar (Desktop & Mobile trigger) -->
+<header class="main-navbar">
+    <div class="brand-logo">5th Chinese American Convention</div>
+    
+    <!-- Desktop Navigation Menu -->
+    <nav class="desktop-nav">
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">Agenda</a></li>
+            <li><a href="#">Sessions</a></li>
+            <li><a href="#">Speakers</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Floor Plan</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Desktop CTA & Mobile Hamburger -->
+    <div class="header-actions">
+        <button class="cta-btn desktop-only">Register</button>
+        <button class="hamburger-btn mobile-only" aria-label="Open menu">
+            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" stroke-width="2" fill="none">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+    </div>
+</header>
+
+<!-- Mobile Drawer Backdrop Overlay -->
+<div class="drawer-overlay"></div>
+
+<!-- Mobile Off-Canvas Drawer -->
+<aside class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-content">
+        <!-- 1. Header Bar -->
+        <div class="drawer-header">
+            <div class="drawer-brand">
+                <span class="icon-5">5</span>
+                <span class="brand-text">Chinese American Convention</span>
+            </div>
+            <button class="close-btn" aria-label="Close menu">&times;</button>
+        </div>
+        
+        <!-- 2. Localization Toggle -->
+        <div class="localization-toggle">
+            <button class="lang-btn">English</button>
+            <button class="lang-btn active">中文</button>
+        </div>
+        
+        <!-- 3. Vertical Navigation Links -->
+        <nav class="mobile-nav">
+            <ul>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Agenda</a></li>
+                <li><a href="#">Sessions</a></li>
+                <li><a href="#">Speakers</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Articles</a></li>
+                <li><a href="#">Floor Plan</a></li>
+            </ul>
+        </nav>
+        
+    </div>
+    
+    <!-- 5. Sticky Bottom CTA -->
+    <div class="drawer-footer">
+        <button class="sticky-cta">
+            Register 
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <p class="microcopy"><em>EARLY BIRD ENDS DEC 31, 2025</em></p>
+    </div>
+</aside>
