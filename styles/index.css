@@ -251,6 +251,60 @@
 }
 
 /* ==================================
+   Banded Links Section
+==================================== */
+.banded-links-section {
+    padding: 0px 30px 30px 30px;
+    background-color: var(--bg-white, #ffffff);
+    display: flex;
+    justify-content: center;
+}
+
+.banded-links-container {
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    justify-items: center;
+}
+
+.banded-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #BA1434;
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-decoration: none;
+    width: 100%;
+    max-width: 220px;
+    aspect-ratio: 1 / 1;
+    border-radius: 20px;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 12px rgba(186, 20, 52, 0.2);
+}
+
+.banded-btn:hover {
+    background-color: #680016;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(104, 0, 22, 0.3);
+}
+
+@media (max-width: 768px) {
+    .banded-links-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    
+    .banded-btn {
+        font-size: 1.25rem;
+        border-radius: 16px;
+    }
+}
+
+/* ==================================
    Latest News Section
 ==================================== */
 .news-section {
