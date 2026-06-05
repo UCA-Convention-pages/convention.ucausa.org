@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
             // 3. Initialize interactive states after DOM injection
             initHeaderInteractions();
+            setActiveNavLinks();
         })
         .catch(err => console.error("Failed to load header: ", err));
 
@@ -51,4 +52,26 @@ function initHeaderInteractions() {
     if (hamburgerBtn) hamburgerBtn.addEventListener('click', openMenu);
     if (closeBtn) closeBtn.addEventListener('click', closeMenu);
     if (overlay) overlay.addEventListener('click', closeMenu);
+}
+
+function setActiveNavLinks() {
+    let path = window.location.pathname;
+    let page = path.split("/").pop();
+    
+    // Default to index.html if at the root path
+    if (page === "") {
+        page = "index.html";
+    }
+
+    // Sub-page logic: keep "AGENDA" active when viewing day1.html to day5.html
+    if (page.startsWith("day") && page.endsWith(".html")) {
+        page = "agenda.html";
+    }
+
+    const navLinks = document.querySelectorAll('.desktop-nav a, .mobile-nav a');
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === page) {
+            link.classList.add('active');
+        }
+    });
 }
