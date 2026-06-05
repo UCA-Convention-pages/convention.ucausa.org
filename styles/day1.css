@@ -90,7 +90,7 @@
 
 /* Left Track: Vertical Timeline Axis */
 .timeline-time {
-    width: 100px;
+    width: 160px;
     flex-shrink: 0;
     text-align: right;
     padding-top: 24px; /* Optically aligns text alongside the ring marker */
