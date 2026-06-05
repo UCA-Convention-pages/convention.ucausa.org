@@ -131,13 +131,14 @@
 
 .btn-tertiary {
     color: #ffffff;
-    padding: 12px 16px;
+    border: 2px solid #ffffff;
+    padding: 10px 16px; /* Account for 2px border to visually match primary height */
 }
 
 /* Hover States */
 .btn-primary:hover { background-color: #a80c25; }
 .btn-secondary:hover { background-color: rgba(255, 255, 255, 0.1); }
-.btn-tertiary:hover { text-decoration: underline; color: var(--gold-accent); }
+.btn-tertiary:hover { text-decoration: underline; color: var(--gold-accent); border-color: var(--gold-accent); }
 
 /* Responsiveness */
 @media (max-width: 768px) {
