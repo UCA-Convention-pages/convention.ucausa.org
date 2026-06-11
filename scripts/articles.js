@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // enforcing the correct image loading pattern specified.
     const newsData = [
         { id: 9, category: "ANNOUNCEMENT", catClass: "cat-maroon", date: "May 27, 2026", title: "沙漠与繁花 | 美国华人大会首届书展行动计划书", snippet: "截止日期：2026年6月12日，尽快报名", link: "https://mp.weixin.qq.com/s/MqtF3pZge6TeVgnut93qeg?scene=1" },
-        { id: 8, category: "EVENT", catClass: "cat-navy", date: "May 13, 2026", title: "造就未来栋梁，开启华裔青年领袖之旅 – UCA第二期华裔青年领袖培训营报名日期延期到6月15日", snippet: "报到时间：July 19,4:00 PM – 6:00 PM (ET)", link: "https://mp.weixin.qq.com/s/d2V6_iBUA8VtDZWchRtn2w" },
         { id: 7, category: "WORKSHOP", catClass: "cat-gold", date: "May 8, 2026", title: "开启赛事，见证精彩 | 首届全国匹克球锦标赛即将举行！", snippet: "全美匹克球联盟为您带来巅峰赛事", link: "https://mp.weixin.qq.com/s/zHmTfgHHzSDSctxE2tROxQ" },
         { id: 6, category: "ANNOUNCEMENT", catClass: "cat-maroon", date: "May 8, 2026", title: "议程首发｜第三届全美华裔青年大会议程公布：席位有限，报名从速", snippet: "从展示到对话，从链接到成长", link: "https://mp.weixin.qq.com/s/CkM0ZYRGTBB_r0Mr1dugBA" },
         { id: 5, category: "EVENT", catClass: "cat-navy", date: "April 12, 2026", title: "第三届全美华裔青年大会：逐梦拉斯维加斯，铸就华裔新一代", snippet: "立即报名，共赴盛会", link: "https://mp.weixin.qq.com/s/6G_dBLDEFQDqEIKex14xyQ" },

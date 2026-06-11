@@ -63,11 +63,6 @@ function setActiveNavLinks() {
         page = "index.html";
     }
 
-    // Sub-page logic: keep "AGENDA" active when viewing day1.html to day5.html
-    if (page.startsWith("day") && page.endsWith(".html")) {
-        page = "agenda.html";
-    }
-
     const navLinks = document.querySelectorAll('.desktop-nav a, .mobile-nav a');
     navLinks.forEach(link => {
         if (link.getAttribute('href') === page) {
